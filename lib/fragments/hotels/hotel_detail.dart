@@ -91,9 +91,7 @@ class _HotelDetailState extends State<HotelDetail> {
                     return Container(
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(
-                                i ?? Icon(FontAwesomeIcons.camera)),
-                            fit: BoxFit.cover),
+                            image: NetworkImage(i), fit: BoxFit.cover),
                       ),
                     );
                   },
