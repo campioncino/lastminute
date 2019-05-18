@@ -61,25 +61,25 @@ The Project is sctuctured in this way :
     │   │
     │   ├── hotels 
     │   │    │
-    │   │    ├── hotel_detail.dart                       # detailed page for a selected Hotel
+    │   │    ├── hotel_detail.dart                # detailed page for a selected Hotel
     │   │    │
-    │   │    ├── hotel_ui_widget.dart                # ui definition for most component used in hotel_detail and hotels_fragment
+    │   │    ├── hotel_ui_widget.dart             # ui definition for most component used in hotel_detail and hotels_fragment
     │   │    │  
-    │   │    └── hotels_fragment.dart               # the fragment that contains the list of hotels sortable by user rating and by the numer of stars 
+    │   │    └── hotels_fragment.dart             # the fragment that contains the list of hotels sortable by user rating and by the numer of stars 
     │   │
-    │   └── home_fragmet.dart                          # the main page that contains the menu drawer
+    │   └── home_fragmet.dart                     # the main page that contains the menu drawer
     │
-    ├── model                                                       # classes definitions (Hotel, Location, Contact..)
+    ├── model                                     # classes definitions (Hotel, Location, Contact..)
     │
-    ├── pages                                                       # empty_page and splash_page
+    ├── pages                                     # empty_page and splash_page
     │
     ├── rest              
     │   │
     │   └── hotel_rest_service.dart           
     │
-    ├── ui                                                              # userfull global definition 
+    ├── ui                                        # usefull global definition 
     │
-    ├── utils                                                          # global usefull  
+    ├── utils                                     # global usefull  
     │  
     └── main.dart
 
