@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +78,10 @@ class _HotelDetailState extends State<HotelDetail> {
                 HotelUIWidget.stars(_hotel)
               ],
             ),
-            HotelUIWidget.addressRow(_hotel),
+            GestureDetector(
+              child: HotelUIWidget.addressRow(_hotel),
+              onTap: _openMap,
+            ),
             SizedBox(
               height: 10,
             ),
@@ -154,6 +159,25 @@ class _HotelDetailState extends State<HotelDetail> {
   }
 
   Future<void> _makeCall(String url) async {
+    //this function doesn't work on emulator
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _openMap() async {
+    // Android
+    var url =
+        'geo:${_hotel.location.latitude},${_hotel.location.longitude}?q=${_hotel.name}';
+    if (Platform.isIOS) {
+      // iOS    Tested only on emulator
+      String queryLocation = _hotel.name.replaceAll(" ", "+");
+      url =
+          'http://maps.apple.com/?ll=${_hotel.location.latitude},${_hotel.location.longitude}?q=$queryLocation';
+      print(url);
+    }
     if (await canLaunch(url)) {
       await launch(url);
     } else {
