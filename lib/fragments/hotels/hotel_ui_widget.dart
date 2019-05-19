@@ -295,7 +295,7 @@ class HotelUIWidget {
     );
   }
 
-  static Widget contactUsRow(Hotel hotel) {
+  static Widget contactUsRow(Widget phone, Widget email) {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(width: 1.0, color: LmColors.BASE_ACCENT)),
@@ -305,37 +305,13 @@ class HotelUIWidget {
           children: <Widget>[
             Text("HOTEL CONTACTS"),
             SizedBox(
-              height: 7,
+              height: 10,
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              Icon(
-                FontAwesomeIcons.phone,
-                size: 20,
-                color: Colors.black38,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(
-                hotel.contact.phoneNumber,
-                textScaleFactor: 0.9,
-                style: TextStyle(fontWeight: FontWeight.bold),
-              )
-            ]),
+            phone,
             SizedBox(
-              height: 7,
+              height: 10,
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-              Icon(
-                FontAwesomeIcons.envelope,
-                size: 20,
-                color: Colors.black38,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Text(hotel.contact.email)
-            ])
+            email,
           ],
         ),
       ),

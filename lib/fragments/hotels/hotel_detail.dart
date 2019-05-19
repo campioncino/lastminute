@@ -1,8 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lm_flutter/model/hotel.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:lm_flutter/ui/lm_colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'hotel_ui_widget.dart';
 
@@ -11,7 +13,6 @@ List<T> map<T>(List list, Function handler) {
   for (var i = 0; i < list.length; i++) {
     result.add(handler(i, list[i]));
   }
-
   return result;
 }
 
@@ -59,7 +60,7 @@ class _HotelDetailState extends State<HotelDetail> {
   }
 
   Widget _contentWidget() {
-    return Container(
+    return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -81,17 +82,20 @@ class _HotelDetailState extends State<HotelDetail> {
             ),
             CarouselSlider(
                 viewportFraction: 1.0,
-                aspectRatio: 2.0,
+                aspectRatio: 1.5,
                 autoPlay: true,
                 enlargeCenterPage: false,
                 pauseAutoPlayOnTouch: Duration(seconds: 3),
                 items: map<Widget>(
                   _hotel.images,
                   (index, i) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(i), fit: BoxFit.cover),
+                    return new ClipRRect(
+                      clipBehavior: Clip.hardEdge,
+                      borderRadius: BorderRadius.all(Radius.circular(0)),
+                      child: new CachedNetworkImage(
+                        imageUrl: i,
+                        placeholder: (context, url) =>
+                            Center(child: CircularProgressIndicator()),
                       ),
                     );
                   },
@@ -118,10 +122,42 @@ class _HotelDetailState extends State<HotelDetail> {
             SizedBox(
               height: 20,
             ),
-            HotelUIWidget.contactUsRow(_hotel)
+            HotelUIWidget.contactUsRow(
+              call(_hotel.contact.phoneNumber, FontAwesomeIcons.phone, false),
+              call(_hotel.contact.email, FontAwesomeIcons.envelope, true),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Widget call(String url, IconData ico, bool mail) {
+    return GestureDetector(
+        child:
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
+          Icon(
+            ico,
+            size: 20,
+            color: Colors.black38,
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Text(
+            url,
+            textScaleFactor: 0.9,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          )
+        ]),
+        onTap: () => _makeCall(mail ? 'mailto:$url' : 'tel:$url'));
+  }
+
+  Future<void> _makeCall(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class LmColors {
   static final Color AVERAGE = Colors.grey[500]; // <75
   static final Color GOOD = Colors.green[400]; //  [74,80]

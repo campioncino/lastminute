@@ -215,8 +215,7 @@ class _HotelsFragmentState extends State<HotelsFragment> {
     }
   }
 
-  Widget iconUpDown(int value, IconData iconUp, IconData iconDown,
-      {Color col}) {
+  iconUpDown(int value, IconData iconUp, IconData iconDown, {Color col}) {
     int tot = value % 3;
     if (tot == 1) {
       return Icon(iconUp, color: col ?? Colors.black54, size: 22);
@@ -227,7 +226,7 @@ class _HotelsFragmentState extends State<HotelsFragment> {
     }
   }
 
-  Widget textUpDown(int value, String text, {Color col}) {
+  textUpDown(int value, String text, {Color col}) {
     int tot = value % 3;
     if (tot == 0) {
       col = Colors.black54;
