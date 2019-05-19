@@ -22,7 +22,7 @@ For help getting started with Flutter, view online [documentation](https://flutt
 
 ## Install PUBs
 
-These are the most important used plugins in this project.
+The most important plugins used in this project are : 
 
 | Plugin  |  Pub | Used|
 |---|---|---|
@@ -31,7 +31,6 @@ These are the most important used plugins in this project.
 | [package_info](https://pub.dartlang.org/packages/package_info)|[![pub package](https://img.shields.io/pub/v/package_info.svg)](https://pub.dartlang.org/packages/package_info)|![pub package](https://img.shields.io/badge/pub-v0.4.0+2-green.svg)|
 | [dio](https://pub.dartlang.org/packages/dio)|[![pub package](https://img.shields.io/pub/v/dio.svg)](https://pub.dartlang.org/packages/dio)|![pub package](https://img.shields.io/badge/pub-v2.1.0-green.svg)|
 | [json_annotation](https://pub.dartlang.org/packages/json_annotation)|[![pub package](https://img.shields.io/pub/v/json_annotation.svg)](https://pub.dartlang.org/packages/json_annotation)|![pub package](https://img.shields.io/badge/pub-v2.0.0-green.svg)|
-| [local_auth](https://pub.dartlang.org/packages/local_auth)|[![pub package](https://img.shields.io/pub/v/local_auth.svg)](https://pub.dartlang.org/packages/local_auth)|![pub package](https://img.shields.io/badge/pub-v0.4.0+1-green.svg)|
 | [cached_network_image](https://pub.dev/packages/cached_network_image)|[![pub package](https://img.shields.io/pub/v/cached_network_image.svg)](https://pub.dartlang.org/packages/cached_network_image)|![pub package](https://img.shields.io/badge/pub-v0.8.0-green.svg)|
 | [carousel_slider](https://pub.dev/packages/carousel_slider)|[![pub package](https://img.shields.io/pub/v/carousel_slider.svg)](https://pub.dartlang.org/packages/carousel_slider)|![pub package](https://img.shields.io/badge/pub-v1.3.0-green.svg)|
 | [json_serializable](https://pub.dartlang.org/packages/json_serializable)|[![pub package](https://img.shields.io/pub/v/json_serializable.svg)](https://pub.dartlang.org/packages/json_serializable)|![pub package](https://img.shields.io/badge/pub-v2.0.3-green.svg)|
@@ -84,3 +83,9 @@ The Project is sctuctured in this way :
     └── main.dart
 
         
+
+## TESTED ON :
+- iOS Emulator : iphone 8
+- Android Emulator : Nexus 5X with Android 9
+- Real Device : Nexus 5X with Android 8.1
+- Real Device : Redmi 4X with Android 7.1.2
